@@ -1,4 +1,338 @@
-body {
-    background-color: #f1f1f1;
+body{
+    background-color: fff;
 }
 
+.logo{
+    float: left;
+}
+
+.logo img{
+    width: 40px;    
+    margin-top: -5px
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0 !important;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-login{
+    background-color: #f08785;
+}
+
+.btn-login a{
+    color: #fff !important;
+}
+
+.nav-container{
+    width: 100%;
+    height: 13%;
+    position: relative;
+    background-color: #fff;
+    z-index: 10;;
+    -webkit-box-shadow: -1px 4px 5px 0px rgba(0,0,0,0.29);
+    -moz-box-shadow: -1px 4px 5px 0px rgba(0,0,0,0.29);
+    box-shadow: -1px 4px 5px 0px rgba(0,0,0,0.29);
+}
+
+.nav-skin{
+    width: 80%;
+    margin: 0 auto;
+    padding: 2%;
+}
+
+.nav-item a{
+    color: #000;
+}
+
+.nav-item a:hover{
+    color: #000;
+    font-weight: 500;
+}
+
+
+/*-------------------------- Carousel ------------------------*/
+
+
+/*---------- Carousel 0 -----------*/
+
+.carousel {
+    position: relative;
+}
+
+.content0{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+.content0-title{
+    padding-top: 5%;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.content0-sub{
+    padding: 2%;
+    font-size: 18px;
+}
+
+.content0-boton-1{
+    display: inline-block;
+    width: 250px;
+    background-color: #f08785;
+    color: #fff;
+    padding: 15px;
+    margin-right: 1.5%;
+    font-size: 1.5em;
+}
+
+.content0-boton-2{
+    display: inline-block;
+    width: 250px;
+    background-color: #fff;
+    border: 2px solid #f08785;
+    color: #f08785;
+    padding: 15px;
+    margin-left: 1.5%;
+    font-size: 1.5em;
+}
+
+.content0-botones{
+    padding-top: 10%;
+}
+
+.content0-title {
+    padding-top: 3%;
+    font-size: 4em;
+    font-weight: 700;
+}
+
+.content0-sub {
+    padding: 2%;
+    font-size: 1.5em;
+    color: #f08785;
+}
+
+/*---------- Carousel 1 -----------*/
+
+
+.content1{
+    position: absolute;
+    text-align: center;
+    width: 50%;
+    right: 5%;
+}
+
+.content1-title{
+    padding-top: 10%;
+    font-size: 4em;
+    font-weight: 700;
+}
+
+.content1-sub{
+    padding: 10%;
+    font-size: 1.5em;
+    color: #000;
+}
+
+.content1-boton-1{
+    display: inline-block;
+    width: 250px;
+    background-color: #f08785;
+    color: #fff;
+    padding: 15px;
+    margin-right: 1.5%;
+    font-size: 1.5em;
+}
+
+.content1-boton-2{
+    display: inline-block;
+    width: 250px;
+    background-color: #edecec;
+    border: 2px solid #f08785;
+    color: #f08785;
+    padding: 15px;
+    margin-left: 1.5%;
+    font-size: 1.5em;
+}
+
+.content1-botones{
+    padding-top: 0%;
+}
+
+
+/*---------- Carousel 2 -----------*/
+
+
+.content2{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+.content2-title{
+    padding-top: 5%;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.content2-sub{
+    padding: 2%;
+    font-size: 18px;
+}
+
+.content2-title {
+    padding-top: 3%;
+    font-size: 4em;
+    font-weight: 700;
+}
+
+.content2-sub {
+    padding: 2%;
+    font-size: 1.5em;
+    color: #000;
+}
+
+
+
+/*---------- Carousel 3 -----------*/
+
+
+.content3{
+    position: absolute;
+    text-align: center;
+    width: 45%;
+    right: 5%;
+}
+
+.content3-title{
+    padding-top: 10%;
+    font-size: 4em;
+    font-weight: 700;
+}
+
+.content3-sub{
+    padding: 10%;
+    font-size: 1.5em;
+    color: #000;
+}
+
+.content3-boton-1{
+    display: inline-block;
+    width: 250px;
+    background-color: #f08785;
+    color: #fff;
+    padding: 15px;
+    margin-right: 1.5%;
+    font-size: 1.5em;
+}
+
+.content3-boton-2{
+    display: inline-block;
+    width: 250px;
+    background-color: #fff;
+    border: 2px solid #f08785;
+    color: #f08785;
+    padding: 15px;
+    margin-left: 1.5%;
+    font-size: 1.5em;
+}
+
+.content3-botones{
+    padding-top: 0%;
+}
+
+
+
+/*-------------------------- Artista ------------------------*/
+
+.container-conviertete{
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.container-container-conviertete{
+    width: 60%;
+    padding: 5% 0% 0% 0%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.conviertete-title{
+    font-size: 4em;
+    font-weight: 700;
+}
+
+.conviertete-sub{
+    padding: 5%;
+    font-size: 1.5em;
+    color: #000;
+    line-height: 2;
+}
+
+.conviertete-boton{
+    display: inline-block;
+    width: 250px;
+    background-color: #f08785;
+    color: #fff;
+    padding: 15px;
+    font-size: 1.5em;
+    margin-top: 5%;
+}
+
+.conviertete-image{
+    position: relative;
+    margin-top: -5%;
+    z-index: -1;
+}
+
+.conviertete-image img{
+    width: 100%;
+}
+
+
+/*-------------------------- Categorías ------------------------*/
+
+
+.container-categorias{
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    background-color: #000;
+}
+
+.container-container-categorias{
+    width: 60%;
+    padding: 5% 0%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.categorias-title{
+    font-size: 4em;
+    font-weight: 700;
+    color: #fff;
+}
+
+.categorias-sub{
+    padding: 5%;
+    font-size: 1.5em;
+    color: #fff;
+    line-height: 2;
+}
