@@ -2,6 +2,9 @@ body{
     background-color: fff;
 }
 
+.wrapper{}
+
+
 .logo{
     float: left;
 }
@@ -32,6 +35,7 @@ body{
 
 .btn-login{
     background-color: #f08785;
+    color: #fff !important;
 }
 
 .btn-login a{
