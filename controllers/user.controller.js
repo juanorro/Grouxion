@@ -25,6 +25,7 @@ module.exports.create = (req, res, next) => {
     categories: req.body.categories,
     artist: req.body.usertype === 'artista' // Si en select es artist, entonces true
   })
+  console.log(req.body)
 
   user.save()
   .then((user) => {

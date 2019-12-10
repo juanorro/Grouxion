@@ -765,7 +765,7 @@ a.dona-boton:hover{
     width: 460px;
     margin: 0 auto;
     position: absolute;
-    top: 50%;
+    top: 75%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(0,0,0, 0.8);
@@ -1010,6 +1010,17 @@ select {
     height: 30px;
 }
 
+.signin-new{
+        background-color: transparent;
+        color: #fff !important;
+        padding: 10px 40px;
+        margin: 10% 0% 0% 0%;
+        border: none;
+        width: 100%;
+        border-top: 1px solid #f08785;
+        border-bottom: 1px solid #f08785;
+        float: right;
+}
 
 /*--------------------------------------------- Categories -------------------------------------------*/
 

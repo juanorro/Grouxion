@@ -88,7 +88,7 @@
         </div>
 
         <label for="profileimg">User / Artist</label>
-        <select name="usertype" form="carform">
+        <select name="usertype" multiple>
           <option value="usuario">Usuario</option>
           <option value="artista">Artista</option>
         </select>
@@ -96,7 +96,7 @@
 
 
         <label for="profileimg">Genres</label>
-        <select multiple name="usertype" form="carform" size="1" >
+        <select multiple name="categories" >
           <option value="blues">Blues</option>
           <option value="cumbia">Cumbia</option>
           <option value="electronica">Electrónica</option>
@@ -114,7 +114,7 @@
         </select>   
 
 
-        <button type="submit" class="btn btn-primary">
+        <button class="signin-new" type="submit" class="btn btn-primary">
           Sign up
         </button>
       </form>
