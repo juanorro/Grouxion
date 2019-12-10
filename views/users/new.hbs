@@ -1,89 +1,127 @@
-{{#if user}}
-<form action="/users/profile" method="POST" >
-{{/if}}
+<div class="wrapper-login">
+  <div class="form-container">
 
-{{#if artist}}
-<form action="/artists" method="POST">
-{{/if}}
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input name="name" type="text" class="form-control {{#if error.name }}is-invalid{{/if}}" id="name"
-      placeholder="Enter name" value="{{ user.name }}">
-
-    {{#if error.name}}
-    <div class="invalid-feedback">
-      {{error.name.message}}
+    <div class="title-signin">
+      SIGN IN
     </div>
-    {{/if}}
+
+
+    {{#if user}}
+    <form action="/users/profile" method="POST">
+      {{/if}}
+
+      {{#if artist}}
+      <form action="/artists" method="POST">
+        {{/if}}
+        <div class="form-group">
+          {{!-- <label for="name">Name</label> --}}
+          <input name="name" type="text" class="form-control-sign {{#if error.name }}is-invalid{{/if}}" id="name"
+            placeholder="Enter name" value="{{ user.name }}">
+
+          {{#if error.name}}
+          <div class="invalid-feedback">
+            {{error.name.message}}
+          </div>
+          {{/if}}
+        </div>
+
+        <div class="form-group">
+          {{!-- <label for="username">Username</label> --}}
+          <input name="username" type="text" class="form-control-sign {{#if error.username }}is-invalid{{/if}}"
+            id="username" placeholder="Enter username" value="{{ user.username }}">
+
+          {{#if error.username}}
+          <div class="invalid-feedback">
+            {{error.username.message}}
+          </div>
+          {{/if}}
+        </div>
+
+        <div class="form-group">
+          {{!-- <label for="email">Email</label> --}}
+          <input name="email" type="email" class="form-control-sign {{#if error.email }}is-invalid{{/if}}" id="email"
+            placeholder="Enter email" value="{{ user.email }}">
+
+          {{#if error.email}}
+          <div class="invalid-feedback">
+            {{error.email.message}}
+          </div>
+          {{/if}}
+        </div>
+
+
+        <div class="form-group">
+          {{!-- <label for="password">Password</label> --}}
+          <input name="password" type="password" class="form-control-sign {{#if error.password }}is-invalid{{/if}}"
+            id="password" placeholder="Enter password" value="{{ user.password }}">
+
+          {{#if error.password}}
+          <div class="invalid-feedback">
+            {{error.password.message}}
+          </div>
+          {{/if}}
+        </div>
+
+
+        <div class="form-group">
+          {{!-- <label for="bio">Bio</label> --}}
+          <textarea name="bio" type="text" class="form-control-sign {{#if error.bio }}is-invalid{{/if}}" id="bio"
+            placeholder="Enter bio" value="{{ user.bio }}" rows="4"></textarea>
+
+          {{#if error.bio}}
+          <div class="invalid-feedback">
+            {{error.bio.message}}
+          </div>
+          {{/if}}
+        </div>
+
+        <div class="form-group">
+          <label for="profileimg">Profile Image</label>
+          <input name="profileimg" type="file" class="form-control-sign-file {{#if error.profileimg }}is-invalid{{/if}}"
+            id="profileimg">
+
+          {{#if error.profileimg}}
+          <div class="invalid-feedback">
+            {{error.profileimg.message}}
+          </div>
+          {{/if}}
+        </div>
+
+        <label for="profileimg">User / Artist</label>
+        <select name="usertype" form="carform">
+          <option value="usuario">Usuario</option>
+          <option value="artista">Artista</option>
+        </select>
+
+
+
+        <label for="profileimg">Genres</label>
+        <select multiple name="usertype" form="carform" size="1" >
+          <option value="blues">Blues</option>
+          <option value="cumbia">Cumbia</option>
+          <option value="electronica">Electrónica</option>
+          <option value="flamenco">Flamenco</option>
+          <option value="folk">Folk</option>
+          <option value="funk">Funk</option>
+          <option value="hemavy">Heavy-Metal</option>
+          <option value="rap">Hip-Hop/Rap</option>
+          <option value="indie">Indie</option>
+          <option value="jazz">Jazz</option>
+          <option value="pop">Pop</option>
+          <option value="punk">Punk</option>
+          <option value="reggae">Reggae</option>
+          <option value="rock">Rock</option>
+        </select>   
+
+
+        <button type="submit" class="btn btn-primary">
+          Sign up
+        </button>
+      </form>
+
+      <div class="logo-signin">
+        <img src="../images/logo-artcoolt-login-pink.png">
+      </div>
+
   </div>
-
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input name="username" type="text" class="form-control {{#if error.username }}is-invalid{{/if}}" id="username"
-      placeholder="Enter username" value="{{ user.username }}">
-  
-    {{#if error.username}}
-    <div class="invalid-feedback">
-      {{error.username.message}}
-    </div>
-    {{/if}}
-  </div>
-
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input name="email" type="email" class="form-control {{#if error.email }}is-invalid{{/if}}" id="email"
-      placeholder="Enter email" value="{{ user.email }}">
-  
-    {{#if error.email}}
-    <div class="invalid-feedback">
-      {{error.email.message}}
-    </div>
-    {{/if}}
-  </div>
-
-  <div class="form-group">
-    <label for="profileimg">profileimg</label>
-    <input name="profileimg" type="file" class="form-control-file {{#if error.profileimg }}is-invalid{{/if}}" id="profileimg">
-  
-    {{#if error.profileimg}}
-    <div class="invalid-feedback">
-      {{error.profileimg.message}}
-    </div>
-    {{/if}}
-  </div>
-
-
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input name="password" type="password" class="form-control {{#if error.password }}is-invalid{{/if}}" id="password"
-      placeholder="password" value="{{ user.password }}">
-
-    {{#if error.password}}
-    <div class="invalid-feedback">
-      {{error.password.message}}
-    </div>
-    {{/if}}
-  </div>
-
-  <select name="usertype" form="carform">
-    <option value="usuario">Usuario</option>
-    <option value="artista">Artista</option>
-  </select>
-
-  <div class="form-group">
-    <label for="bio">Bio</label>
-    <textarea name="bio" type="text" class="form-control {{#if error.bio }}is-invalid{{/if}}" id="bio"
-      placeholder="Enter bio" value="{{ user.bio }}" rows="4"></textarea>
-  
-    {{#if error.bio}}
-    <div class="invalid-feedback">
-      {{error.bio.message}}
-    </div>
-    {{/if}}
-  </div>
-
-
-  <button type="submit" class="btn btn-primary">
-    Sign up
-  </button>
-</form>
+</div>

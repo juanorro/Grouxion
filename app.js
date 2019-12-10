@@ -49,7 +49,7 @@ app.use(function (err, req, res, next){
 
 //Listen port
 
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '3001');
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });

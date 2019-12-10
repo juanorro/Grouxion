@@ -23,7 +23,7 @@ module.exports.create = (req, res, next) => {
     artist: req.body.artist,
     website: req.body.website,
     categories: req.body.categories,
-    artist: req.body.usertype === 'artista' // Si en select es artist, entonces tru
+    artist: req.body.usertype === 'artista' // Si en select es artist, entonces true
   })
 
   user.save()
@@ -47,6 +47,8 @@ module.exports.create = (req, res, next) => {
     }
   })
 }
+
+
 
 module.exports.validate = (req, res, next) => {
     User.findOne({ validateToken: req.params.token })

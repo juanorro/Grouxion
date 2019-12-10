@@ -1,7 +1,26 @@
 
 <div class="container-categorias"> <!-- Categorias -->
   <div class="container-container-categorias">
-    <div class="categorias-title">Conviértete en Artista</div>
+    <div class="categorias-title">Elige tu género favorito</div>
     <div class="categorias-sub">Destaca en tu categoría, consigue que la gente te siga y lograr así que te apoyen para lograr tus sueños</div>
-  </div>
+  
+
+  {{!-- <div class="genero-card-container">
+    <div class="genero-card-image"><a href=""><img src="../images/boton-on-01.png"></a></div>
+    <div class="genero-card-name">genre</div>
+  </div> --}}
+
+  <div class="genero-card-container">
+    {{#each this as |category|}}
+        <div class="contenedor">
+            <ul>
+                {{>categorieCard category}}
+            </ul>
+        </div>
+    {{/each}}
+</div>
+
+</div>
+
+
 </div> <!-- Fin de Categorias -->

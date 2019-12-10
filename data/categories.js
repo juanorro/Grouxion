@@ -1,14 +1,101 @@
-// Blues
-// Cumbia
-// Electrónica
-// Flamenco
-// Folk
-// Funk
-// Heavy Metal
-// Hip Hop/Rap
-// Indie
-// Jazz
-// Pop
-// Punk
-// Reggae
-// Rock
+module.exports = [
+    {
+        id: 'blues',
+        name: 'Blues',
+        code: '001',
+        image: 'images/boton-off/boton-01.png',
+        hover: 'images/boton-on/boton-on-01.png',    
+    },
+    {
+        id: 'cumbia',
+        name: 'Cumbia',
+        code: '002',
+        image: 'images/boton-off/boton-02.png',
+        hover: 'images/boton-on/boton-on-02.png',
+    },
+    {
+        id: 'electrónica',
+        name: 'Electrónica',
+        code: '003',
+        image: 'images/boton-off/boton-03.png',
+        hover: 'images/boton-on/boton-on-03.png',
+    },
+    {
+        id: 'flamenco',
+        name: 'Flamenco',
+        code: '004',
+        image: 'images/boton-off/boton-04.png',
+        hover: 'images/boton-on/boton-on-04.png',
+    },
+    {
+        id: 'folk',
+        name: 'Folk',
+        code: '005',
+        image: 'images/boton-off/boton-05.png',
+        hover: 'images/boton-on/boton-on-05.png',
+    },
+    {
+        id: 'funk',
+        name: 'Funk',
+        code: '006',
+        image: 'images/boton-off/boton-06.png',
+        hover: 'images/boton-on/boton-on-06.png',
+    },
+    {
+        id: 'heavy-metal',
+        name: 'Heavy Metal',
+        code: '007',
+        image: 'images/boton-off/boton-07.png',
+        hover: 'images/boton-on/boton-on-07.png',
+    },
+    {
+        id: 'hip-Hop/rap',
+        name: 'Hip Hop/Rap',
+        code: '008',
+        image: 'images/boton-off/boton-08.png',
+        hover: 'images/boton-on/boton-on-08.png',
+    },
+    {
+        id: 'indie',
+        name: 'Indie',
+        code: '009',
+        image: 'images/boton-off/boton-09.png',
+        hover: 'images/boton-on/boton-on-09.png',
+    },
+    {
+        id: 'jazz',
+        name: 'Jazz',
+        code: '010',
+        image: 'images/boton-off/boton-10.png',
+        hover: 'images/boton-on/boton-on-10.png',
+    },
+    {
+        id: 'pop',
+        name: 'Pop',
+        code: '011',
+        image: 'images/boton-off/boton-11.png',
+        hover: 'images/boton-on/boton-on-11.png',
+    },
+    {
+        id: 'punk',
+        name: 'Punk',
+        code: '012',
+        image: 'images/boton-off/boton-12.png',
+        hover: 'images/boton-on/boton-on-12.png',
+    },
+    {
+        id: 'reggae',
+        name: 'Reggae',
+        code: '013',
+        image: 'images/boton-off/boton-01.png',
+        hover: 'images/boton-on/boton-on-01.png',
+    },
+    {
+        id: 'rock',
+        name: 'Rock',
+        code: '014',
+        image: 'images/boton-off/boton-02.png',
+        hover: 'images/boton-on/boton-on-02.png',
+    },
+]
+
