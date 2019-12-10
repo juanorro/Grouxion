@@ -65,15 +65,16 @@ const userSchema = new mongoose.Schema ({
 
     categories: {
         type: [String],
-        enum: categories.map((c) => c.id),
+        // enum: categories.map((c) => c.id),
         default: []
     },
-        timestamps: true,
-        toObject: {
-            virtuals: true
-        }
+    //     timestamps: true,
+    //     toObject: {
+    //         virtuals: true
+    //     }
 });
 
+// Hace el hash del password
 userSchema.pre('save', function(next) {
     if(this.isModified('password')) {
         bcrypt.genSalt(SALT_WORK_FACTOR)
@@ -90,9 +91,13 @@ userSchema.pre('save', function(next) {
     }
 });
 
+// Chequea el password
 userSchema.methods.checkPassword = function(password) {
     return bcrypt.compare(password, this.password);
 };
 
+// Crea el modelo
 const User = mongoose.model('User', userSchema);
+
+//Variable del modelo
 module.exports = User; 
