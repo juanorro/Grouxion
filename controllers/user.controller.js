@@ -72,15 +72,10 @@ module.exports.validate = (req, res, next) => {
   }
  
   module.exports.profile = (req, res) => {
+    console.log('entra')
     res.render(req.currentUser.artist ? 'artists/profile' : 'users/profile')
-  } // Esto dice que si en el select es artista, pinta esa view. Sino pinta users
+  } 
 
-  // module.exports.profile = (req, res) => {
-  //   User.find()
-  //   .then(users => {
-  //     res.render(req.currentUser.artist ? 'artists/profile' : 'users/profile', { users })
-  //   }) Esto hace que te pinte todos los elementos al llamar al each en la vista de profile
-  
   module.exports.doLogin = (req, res, next) => {
     const email = req.body.email
     const password = req.body.password

@@ -7,16 +7,14 @@ const authMiddleware = require('../middlewares/auth.middleware')
 
 router.get('/', controller.base);
 
-router.get('/users/new', userController.new)
-
-router.get('/users/profile', authMiddleware.isAuthenticated, userController.profile)
-router.post('/users/profile', authMiddleware.isAuthenticated, userController.create)
+router.get('/users/new', userController.new) // Signin para crear nuevo usuario
 
 router.get('/login', userController.login)
 router.post('/login', userController.doLogin)
 
+router.get('/users/profile', authMiddleware.isAuthenticated, userController.profile)
+router.post('/users/profile', authMiddleware.isAuthenticated, userController.create)
+
 router.post('/logout', userController.logout)
 
 module.exports = router;
-
-
