@@ -25,13 +25,11 @@
 
       {{#if currentUser}}
       <!--Si esta en sesion de currentuser, muestra este botón-->
-      <form action="/users/profile" method="post">
-        <button type="submit" class="btn-profile">
+        <a href="users/profile" class="btn-profile">
           <li class="nav-item">
             Profile
           </li>
-        </button>
-      </form>
+        </a>
       {{/if}}
 
 

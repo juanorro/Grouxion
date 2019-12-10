@@ -43,14 +43,14 @@ module.exports = [
     },
     {
         id: 'heavy-metal',
-        name: 'Heavy Metal',
+        name: 'Heavy',
         code: '007',
         image: 'images/boton-off/boton-07.png',
         hover: 'images/boton-on/boton-on-07.png',
     },
     {
         id: 'hip-Hop/rap',
-        name: 'Hip Hop/Rap',
+        name: 'Hip Hop',
         code: '008',
         image: 'images/boton-off/boton-08.png',
         hover: 'images/boton-on/boton-on-08.png',
