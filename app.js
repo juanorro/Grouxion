@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
-
+const authMiddleware = require('./middlewares/auth.middleware');
 //Handlebars and Mongoose config
 
 require('./config/hbs.config');
@@ -26,6 +26,7 @@ app.use((req, res, next) => {
 })
 
 // app.use(alertMiddleware)
+// app.use(authMiddleware);
 
 //View engine setup
 
