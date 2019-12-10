@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 
 require('./config/hbs.config');
 require('./config/db.config');
+const session = require('./config/session.config');
 
 //Configure express
 
@@ -16,6 +17,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session);
+
+app.use((req, res, next) => {
+  res.locals.currentUser = req.session.user
+  req.currentUser = req.session.user
+  next()
+})
+
+// app.use(alertMiddleware)
 
 //View engine setup
 
@@ -39,7 +49,7 @@ app.use(function (err, req, res, next){
 
 //Listen port
 
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '3001');
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });

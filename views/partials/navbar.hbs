@@ -1,24 +1,57 @@
-<div class="nav-container"> <!-- Nav -->
-    <div class="nav-skin">
-        <div class="logo"><img src="images/logo-artcoolt.png"></div>
+<div class="nav-container">
+  <!-- Nav -->
+  <div class="nav-skin">
+    <a href="/">
+      <div class="logo"><img src="/images/logo-artcoolt.png"></div>
+    </a>
 
-        <ul class="nav justify-content-end">
-                <li class="nav-item">
-                  <a class="nav-link active" href="#">Home</a>
-                </li>
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" href="/">Home</a>
+      </li>
 
-                 <button type="button" class="btn btn-login">
-                  <li class="nav-item">
-                  <a class="nav-link" href="#">Log In</a>
-                  </li>
-                </button>
+      <button type="button" class="btn btn-login">
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Log In</a>
+        </li>
+      </button>
 
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>
-        </ul>
-    </div>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+
+      {{#if currentUser}}
+      <!--Si esta en sesion de currentuser, muestra este botón-->
+      <form action="/users/profile" method="post">
+        <button type="submit" class="btn-profile">
+          <li class="nav-item">
+            Profile
+          </li>
+        </button>
+      </form>
+      {{/if}}
+
+
+      {{#if currentUser}}
+      <!--Si esta en sesion de currentuser, muestra este botón-->
+      <form action="/logout" method="post">
+        <button type="submit" class="btn btn-logout">
+          <li class="nav-item">
+            Logout
+          </li>
+        </button>
+      </form>
+      {{/if}}
+
+
+    </ul>
+  </div>
+
+
+
+
+
 </div> <!-- Fin de Nav -->
