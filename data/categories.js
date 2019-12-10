@@ -10,7 +10,7 @@ modules.exports = [
         code: '002'    
     },
     {
-        id: 'electrónica',
+        id: 'electronica',
         name: 'Electrónica',
         code: '003'    
     },
