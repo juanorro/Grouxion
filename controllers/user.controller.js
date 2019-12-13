@@ -25,6 +25,7 @@ module.exports.create = (req, res, next) => {
     categories: req.body.categories,
     artist: req.body.usertype === 'artista' // Si en select es artist, entonces true
   })
+  console.log(req.body)
 
   user.save()
   .then((user) => {
@@ -70,11 +71,35 @@ module.exports.validate = (req, res, next) => {
   module.exports.login = (_, res) => {
     res.render('users/login')
   }
- 
-  module.exports.profile = (req, res) => {
-    console.log('entra')
-    res.render(req.currentUser.artist ? 'artists/profile' : 'users/profile')
-  } 
+
+  module.exports.myProfile = (req, res, next) => {
+    const id = req.params.id;
+
+    //comprobar que el id es igual que req.session.user.id
+    //errores, estás modi
+
+
+    User.findByIdAndUpdate(id, req.body, { new: true })
+      .then(user => {
+        if (!user) {
+          req.session.genericError = 'El usuario no existe'
+          res.render('users/new', req.body);
+        } else {
+            req.session.user = user;
+            res.redirect("/profile");
+        }
+      });
+  }
+
+
+  module.exports.profile = (req, res, next) => {
+    const id = req.params.id
+
+    User.findById(id)
+      .then(user => res.render('users/profile', {user: user}))
+      .catch(err => next(err))
+  }
+
 
   module.exports.doLogin = (req, res, next) => {
     const email = req.body.email
@@ -94,7 +119,7 @@ module.exports.validate = (req, res, next) => {
                 res.redirect('/login')
               } else {
                 req.session.user = user
-                res.redirect('/users/profile')
+                res.redirect('/users/:username')
               }
   
             })
