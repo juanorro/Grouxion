@@ -15,15 +15,25 @@
 </div>
 
 
-<div class="container-categories-list">
+<div class="container-artist-list">
 
 {{#each artists as |artist| }}
     <div class="ficha-artist-container">
-        {{artist.coverimg}}
-        {{artist.profileimg}}
-        <h1>{{artist.name}}</h1>
-        {{artist.bio}}
-        <a href="/users/{{artist.id}}">Ver Perfil</a>
+        <div class="folder-back">
+            {{artist.coverimg}}
+        </div>
+        <div class="folder-profile">
+            {{artist.profileimg}}
+        </div>
+        <div class="folder-name">
+            {{artist.name}}
+        </div>
+        <div class="folder-bio">
+            {{artist.bio}}
+        </div>
+        <div class="folder-botton">
+            <a href="/users/{{artist.id}}">Ver Perfil</a>
+        </div>
     </div>
 {{/each}}
 
