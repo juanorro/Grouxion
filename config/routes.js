@@ -9,7 +9,8 @@ const contentController = require('../controllers/content.controller')
 
 router.get('/', controller.base);
 
-router.get('/users/new', userController.new) // Signin para crear nuevo usuario
+router.get('/users/new', userController.new) // Signin para pintar el formulario
+router.post('/users/new', userController.create) //creación del usuario
 
 router.get('/login', userController.login)
 router.post('/login', userController.doLogin)
