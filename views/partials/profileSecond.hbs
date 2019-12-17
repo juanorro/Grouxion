@@ -1,5 +1,5 @@
 
-{{#if this.artist}}
+{{!-- {{#if this.artist}} --}}
 <div class="dona">
     <div class="dona-title">
         Cómprale una guitarra a {{user.name}}
@@ -21,7 +21,7 @@
             Ayuda a {{user.name}}
     </a>
 </div>
-{{/if}}
+{{!-- {{/if}} --}}
 <div class="post-profile-container">
 
     <div class="contenedor-boton">
@@ -33,13 +33,63 @@
         </div>
     </div>
 
-    <div class="text-anade">
+    {{!-- <div class="text-anade">
         Añade tu primer post en ArtCoolT
-    </div>
+    </div> --}}
 
-    <div class="boton-anade">
+
+ <form action="/users/content/{{this.id}}" method="POST">
+        <textarea name="body" type="text" class="form-control-sign border c-dark" id="content-body"
+            placeholder="Escribe tu comentario" value="" rows="4">
+        </textarea>
+
+    <button class="boton-anade" type="submit" class="btn btn-primary">
         + Añade Algo!
-    </div>
+    </button>
+ </form>
+
+
+{{#each this.contents}}
+
+
+    
+        <h6 class="card-subtitle mb-2 text-muted">
+        </h6>
+
+
+        <img class="w-100" src="{{this.image}}" />
+
+      <div class="comments">
+        {{!-- <a class="text-muted d-block text-sm- mb-2" href="tweets/{{this._id}}" > --}}
+            <i class="fa fa-comments"></i>
+            {{this.comments.length}} {{this.body}}
+        {{!-- </a> --}}
+      </div>
+
+      <div class="comentarios">
+        <a class="text-muted d-block text-sm- mb-2" href="tweets/{{t._id}}" >
+            <i class="fa fa-comments"></i>
+            {{t.comments.length}} comments
+        </a>
+      </div>
+
+        <div class="likes">
+          <button class="btn btn-sm mb-2 btn-outline-danger" id="{{this._id}}" onclick="like(event)">
+            <i class="fa fa-heart"></i>
+            <span class="likes-count">{{this.likes.length}}</span> likes
+          </button>
+        </div>
+
+        <div class="hashtag">
+            <a href="/users/{{users.id}}" class="card-link">@{{user.username}}</a> 
+        </div>
+        
+    
+
+
+{{/each}}
+
+
 
     <div class="signed">
         Signed in as  

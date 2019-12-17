@@ -2,10 +2,16 @@ const User = require('../models/user.model');
 const mongoose = require('mongoose');
 
 
+////////// USER NEW //////////
+
 
 module.exports.new = (_, res) => {
   res.render('users/new', { user: new User() })
 }
+
+
+////////// USER CREATE //////////
+
 
 module.exports.create = (req, res, next) => {
   const user = new User({
@@ -26,6 +32,10 @@ module.exports.create = (req, res, next) => {
     artist: req.body.usertype === 'artista' // Si en select es artist, entonces true
   })
   console.log(req.body)
+
+
+////////// USER SAVE //////////
+
 
   user.save()
   .then((user) => {
@@ -51,6 +61,39 @@ module.exports.create = (req, res, next) => {
 
 
 
+////////// USER EDIT //////////
+
+
+
+module.exports.edit = (req, res, next) => {
+  const id = req.params.id
+
+  User.findById(id)
+    .then(user => {
+      res.render('users/edit', {user})
+    })
+    .catch(error => {next (error)
+    })
+}
+
+
+
+// module.exports.doEdit = (req, res, next) => {
+//   const id = req.params.id
+
+//   if(!mongoose.Types.ObjectId.isValid(id)) {
+//     next(createError(404));
+//   } else {
+//   User.findByIdAndUpdate(id, req.body, { new: true })
+//   .then(user => {
+//     res.redirect(``)
+//   }
+//   })
+// }
+
+////////// USER VALIDATE - NOT WORKING //////////
+
+
 module.exports.validate = (req, res, next) => {
     User.findOne({ validateToken: req.params.token })
       .then(user => {
@@ -68,9 +111,20 @@ module.exports.validate = (req, res, next) => {
       .catch(next)
   }
 
+
+  ////////// USER LOGIN //////////
+
+
+
   module.exports.login = (_, res) => {
     res.render('users/login')
   }
+
+
+
+  ////////// USER MY PROFILE //////////
+
+
 
   module.exports.myProfile = (req, res, next) => {
     const id = req.params.id;
@@ -86,19 +140,51 @@ module.exports.validate = (req, res, next) => {
           res.render('users/new', req.body);
         } else {
             req.session.user = user;
-            res.redirect("/profile");
+            res.redirect(`/users/${user.id}`);
         }
       });
   }
+
+
+//   module.exports.profile = (req, res, next) => {
+//     User.findOne({ username: req.params.username })
+//     .populate({
+//         path: 'content',
+//         populate : {
+//             path: 'user'
+//         }
+//     })
+//     .then(user => {
+//         if (user) {
+//             res.render(`/users/${user.id}`, {user, contents: user.content})
+//         } else {
+//     req.session.genericError = "usuario no encontrado"
+//     res.redirect(`/users/${user.id}`)
+// }
+//     })
+//     .catch(next)
+// }
+
+
+
+  ////////// USERS PROFILE ACCESS //////////
+
 
 
   module.exports.profile = (req, res, next) => {
     const id = req.params.id
 
     User.findById(id)
-      .then(user => res.render('users/profile', {user: user}))
+    .populate('contents')
+      .then(user => res.render(`users/profile`, {user}))
       .catch(err => next(err))
   }
+
+
+
+  ////////// USER DO LOGIN //////////
+
+
 
 
   module.exports.doLogin = (req, res, next) => {
@@ -119,7 +205,7 @@ module.exports.validate = (req, res, next) => {
                 res.redirect('/login')
               } else {
                 req.session.user = user
-                res.redirect('/users/:username')
+                res.redirect(`/users/${user.id}`)
               }
   
             })
@@ -129,6 +215,11 @@ module.exports.validate = (req, res, next) => {
       .catch(next)
   
   }
+
+
+  ////////// USER LOGOUT //////////
+
+
   
   module.exports.logout = (req, res) => {
     req.session.destroy();
