@@ -14,7 +14,7 @@ module.exports = [
         hover: 'images/boton-on/boton-on-02.png',
     },
     {
-        id: 'electrónica',
+        id: 'electronica',
         name: 'Electrónica',
         code: '003',
         image: 'images/boton-off/boton-03.png',
