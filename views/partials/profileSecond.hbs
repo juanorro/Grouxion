@@ -69,19 +69,19 @@
       <div class="comentarios">
         <a class="text-muted d-block text-sm- mb-2" href="tweets/{{t._id}}" >
             <i class="fa fa-comments"></i>
-            {{t.comments.length}} comments
+            {{t.comments.length}} Comentarios
         </a>
       </div>
 
         <div class="likes">
-          <button class="btn btn-sm mb-2 btn-outline-danger" id="{{this._id}}" onclick="like(event)">
+          <button class="btn btn-sm mb-2 btn-outline-danger" id="likecontent" data-id="{{this.id}}" onclick="like(event)">
             <i class="fa fa-heart"></i>
             <span class="likes-count">{{this.likes.length}}</span> likes
           </button>
         </div>
 
         <div class="hashtag">
-            <a href="/users/{{users.id}}" class="card-link">@{{user.username}}</a> 
+            <a href="/users/{{this.user.id}}" class="card-link">@{{this.user.username}}</a> 
         </div>
         
     

@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/juanorro/Grouxion#readme",
   "dependencies": {
+    "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.18.1",
     "connect-mongo": "^3.2.0",
     "cookie-parser": "^1.4.4",
     "dotenv": "^8.2.0",
@@ -29,6 +31,8 @@
     "http-error": "0.0.6",
     "mongoose": "^5.7.13",
     "morgan": "^1.9.1",
+    "multer": "^1.4.2",
+    "multer-storage-cloudinary": "^2.2.1",
     "nodemailer": "^6.3.1"
   }
 }

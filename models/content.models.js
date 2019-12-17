@@ -32,6 +32,13 @@ contentSchema.virtual('comments', {
     justOne: false,    
 });
 
+contentSchema.virtual('likes', {
+    ref: 'Likes',
+    localField: '_id',
+    foreignField: 'content',
+    justOne: false
+});
+
 // contentSchema.virtual('comments', {
 //     ref: 'Comment',
 //     localField: '_id',
