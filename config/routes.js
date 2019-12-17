@@ -5,12 +5,12 @@ const userController = require('../controllers/user.controller')
 const authMiddleware = require('../middlewares/auth.middleware')
 const artistController = require('../controllers/artist.controller')
 const contentController = require('../controllers/content.controller')
-// const uploadCloud = require('../config/cloudinary.config')
+const uploadCloud = require('../config/cloudinary.config')
 
 router.get('/', controller.base);
 
 router.get('/users/new', userController.new) // Signin para pintar el formulario
-router.post('/users/new', userController.create) //creación del usuario
+router.post('/users/new', uploadCloud.single('profileimg'),  userController.create) //creación del usuario
 
 router.get('/login', userController.login)
 router.post('/login', userController.doLogin)
@@ -26,7 +26,8 @@ router.get('/users/content/:id', contentController.show)
 router.post('/users/content/:id/comments', contentController.addComment)
 router.post('/users/content/:id', contentController.create)
 
-// router.post('users/content/:id/like', contentController.like)
+//likes
+router.post('/users/content/:id/like', contentController.like)
 
 
 // router.get('users/:id/comments', commentsController.create)

@@ -81,7 +81,26 @@ userSchema.virtual('contents', {
     justOne: false
 });
 
+userSchema.virtual('comments', {
+    ref: 'Comment',
+    localField: '_id',
+    foreignField: 'user',
+    justOne: false
+});
 
+userSchema.virtual('likes', {
+    ref: 'Likes',
+    localField: '_id',
+    foreignField: 'user',
+    justOne: true
+});
+
+userSchema.virtual('follow', {
+    ref: 'Follow',
+    localField: '_id',
+    foreignField: 'user',
+    justOne: true
+});
 
 // Hace el hash del password
 userSchema.pre('save', function(next) {

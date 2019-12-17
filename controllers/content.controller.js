@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const User = require('../models/user.model')
 const Content = require('../models/content.models')
 const Comment = require('../models/comment.models')
+const Like =  require('../models/likes.model')
 
 
 module.exports.index = (re, res, next) => {
@@ -45,6 +46,7 @@ module.exports.addComment = (req, res, next) => {
 module.exports.show = (req, res, next) => {
     Content.findOne({ id: req.params.id })
     .populate('user')
+    .populate('likes')
     .populate({
         path: 'comments',
         options: {
@@ -58,6 +60,7 @@ module.exports.show = (req, res, next) => {
     })
     .then(content => {
         if(content) {
+            console.log(content)
             res.render('content/show', { content, user: content.user })
         } else {
             req.session.genericError = 'Contenido cno encontrado'
@@ -83,3 +86,27 @@ module.exports.create = (req, res, next) => {
         .catch(next)
 }
 
+module.exports.like = (req, res, next) => {
+    const params = { content: req.params.id, user: req.currentUser._id}
+
+    Like.findOne(params)
+        .then(like => {
+            if(like) {
+                Like.findByIdAndRemove(like._id)
+                .then(() => {
+                    res.json({ likes: -1 })
+                })
+                .catch(next)
+            } else {
+                
+                const like = new Like(params)   
+
+                like.save()
+                    .then(() => {
+                        res.json({ likes: 1 })
+                    })
+                    .catch(next)
+            }
+        })
+        .catch(next)
+}

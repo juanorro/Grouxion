@@ -14,6 +14,8 @@ module.exports.new = (_, res) => {
 
 
 module.exports.create = (req, res, next) => {
+  console.log(req.body.files)
+  console.log('file',req.body.file)
   const user = new User({
     name: req.body.name,
     username: req.body.username,
@@ -21,7 +23,7 @@ module.exports.create = (req, res, next) => {
     password: req.body.password,
     social: req.body.social,
     bio: req.body.bio,
-    // profileimg: req.file.secure_url,
+    profileimg: req.file.secure_url,
     // coverimg: req.file.secure_url,
     city: req.body.city,
     zp: req.body.zp,
@@ -173,10 +175,27 @@ module.exports.validate = (req, res, next) => {
 
   module.exports.profile = (req, res, next) => {
     const id = req.params.id
-
     User.findById(id)
-    .populate('contents')
-      .then(user => res.render(`users/profile`, {user}))
+      .populate('contents')
+      .populate({
+        path: 'contents',
+        populate: {
+          path: 'user'
+        }
+      })
+      .populate({
+        path: 'contents',
+        populate: {
+          path: 'likes',
+          populate: {
+            path: 'user'
+          }
+        }
+      }) 
+      .then(user => {
+        console.log(user)
+        res.render(`users/profile`, {user})
+      })
       .catch(err => next(err))
   }
 
