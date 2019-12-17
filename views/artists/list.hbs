@@ -1,0 +1,30 @@
+<div class="container-artist">
+    <input class="list-search" type="text" placeholder="Search..">
+</div>
+
+
+
+<div class="container-categories-list">
+    {{#each categories as |category|}}
+        <div class="contenedor">
+            <ul>
+                {{>categoriesList category}}
+            </ul>
+        </div>
+    {{/each}}
+</div>
+
+
+<div class="container-categories-list">
+
+{{#each artists as |artist| }}
+    <div class="ficha-artist-container">
+        {{artist.coverimg}}
+        {{artist.profileimg}}
+        <h1>{{artist.name}}</h1>
+        {{artist.bio}}
+        <a href="/users/{{artist.id}}">Ver Perfil</a>
+    </div>
+{{/each}}
+
+</div>

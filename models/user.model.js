@@ -65,13 +65,14 @@ const userSchema = new mongoose.Schema ({
 
     categories: {
         type: [String],
-        // enum: categories.map((c) => c.id),
+        enum: categories.map((c) => c.id),
         default: []
-    },
-    //     timestamps: true,
-    //     toObject: {
-    //         virtuals: true
-    //     }
+    }
+    },{
+        timestamps: true,
+        toObject: {
+            virtuals: true
+        }
 });
 
 // Hace el hash del password

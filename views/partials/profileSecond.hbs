@@ -1,6 +1,8 @@
+
+{{#if this.artist}}
 <div class="dona">
     <div class="dona-title">
-        Cómprale una guitarra a {{currentUser.name}}
+        Cómprale una guitarra a {{user.name}}
     </div>
 
     <div class="dona-contador">
@@ -11,15 +13,15 @@
 
   
     <textarea class="dona-message">
-        Your message para {{currentUser.name}}
+        Your message para {{user.name}}
     </textarea>
     
 
    <a href="#" class="dona-boton"> 
-            Ayuda a {{currentUser.name}}
+            Ayuda a {{user.name}}
     </a>
 </div>
-
+{{/if}}
 <div class="post-profile-container">
 
     <div class="contenedor-boton">
@@ -42,7 +44,7 @@
     <div class="signed">
         Signed in as  
          <div class="container-profile-pic-signed"><img src="/images/logo-artcoolt.png" class="w-100 rounded-circle mb-3"></div>
-        {{currentUser.name}}
+        {{user.name}}
     </div>
 
 </div>
