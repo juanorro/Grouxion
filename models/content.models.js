@@ -1,20 +1,45 @@
 const mongoose = require('mongoose');
+require('./comment.models');
 
-const contentSchema = new.mongoose.Schema({
+const contentSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'User'
     },
 
-    typeContent: {
+    body: {
         type: String,
+        required: true
     },
 
-    content: {
+    image: {
         type: String, 
     }
 }, {
-    timestamp: true
+    timestamp: true,
+    toObject: {
+            virtuals: true
+        }})
+
+        contentSchema.pre('save', function (next) {
+            next()
 });
 
-module.exports = mongoose.model('Content', contentSchema);
+contentSchema.virtual('comments', {
+    ref: 'Comment',
+    localField: '_id',
+    foreignField: 'content',
+    justOne: false,    
+});
+
+// contentSchema.virtual('comments', {
+//     ref: 'Comment',
+//     localField: '_id',
+//     foreignField: 'content',
+//     justOne: false,    
+// });
+
+
+const Content = mongoose.model('Content', contentSchema);
+
+module.exports = Content;

@@ -62,7 +62,6 @@ const userSchema = new mongoose.Schema ({
     website: {
         type: String, 
     },
-
     categories: {
         type: [String],
         enum: categories.map((c) => c.id),
@@ -74,6 +73,15 @@ const userSchema = new mongoose.Schema ({
             virtuals: true
         }
 });
+
+userSchema.virtual('contents', {
+    ref: 'Content',
+    localField: '_id',
+    foreignField: 'user',
+    justOne: false
+});
+
+
 
 // Hace el hash del password
 userSchema.pre('save', function(next) {

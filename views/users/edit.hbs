@@ -1,0 +1,96 @@
+<div class="wrapper-edit">
+    <div class="form-container-edit">
+
+        <div class="logo-login">
+            {{!-- <img src="../images/logo-artcoolt-login-pink.png"> --}}
+        </div>
+
+        <form action="/users/{{user.id}}" method="POST" class="mb-3" autocomplete="off">
+            <div class="form-email">
+                <label for="name">name</label>
+                <input name="name" type="name" class="form-control {{#if error.name }}is-invalid{{/if}}" id="name"
+                    placeholder="Enter name" value="{{ user.name }}">
+
+                {{#if error.email}}
+                <div class="invalid-feedback">
+                    {{error.email}}
+                </div>
+                {{/if}}
+            </div>
+
+            <form action="/users/{{user.id}}" method="POST" class="mb-3" autocomplete="off">
+                <div class="form-email">
+                    <label for="username">username</label>
+                    <input name="username" type="username" class="form-control {{#if error.username }}is-invalid{{/if}}"
+                        id="username" placeholder="Enter username" value="{{ user.username }}">
+
+                    {{#if error.email}}
+                    <div class="invalid-feedback">
+                        {{error.email}}
+                    </div>
+                    {{/if}}
+                </div>
+
+                <form action="/users/{{user.id}}" method="POST" class="mb-3" autocomplete="off">
+                    <div class="form-email">
+                        <label for="bio">bio</label>
+                        <input name="bio" type="bio" class="form-control {{#if error.bio }}is-invalid{{/if}}" id="bio"
+                            placeholder="Enter bio" value="{{ user.bio }}">
+
+                        {{#if error.email}}
+                        <div class="invalid-feedback">
+                            {{error.email}}
+                        </div>
+                        {{/if}}
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="profileimg">Profile Image</label>
+                        <input name="profileimg" type="file"
+                            class="form-control-sign-file {{#if error.profileimg }}is-invalid{{/if}}" id="profileimg">
+
+                        {{#if error.profileimg}}
+                        <div class="invalid-feedback">
+                            {{error.profileimg.message}}
+                        </div>
+                        {{/if}}
+                    </div>
+
+                    <label for="profileimg">User / Artist</label>
+                    <select name="usertype" multiple>
+                        <option value="usuario">Usuario</option>
+                        <option value="artista">Artista</option>
+                    </select>
+
+
+                    <label for="profileimg">Genres</label>
+                    <select multiple name="categories">
+                        <option value="blues">Blues</option>
+                        <option value="cumbia">Cumbia</option>
+                        <option value="electronica">Electrónica</option>
+                        <option value="flamenco">Flamenco</option>
+                        <option value="folk">Folk</option>
+                        <option value="funk">Funk</option>
+                        <option value="hemavy">Heavy-Metal</option>
+                        <option value="rap">Hip-Hop/Rap</option>
+                        <option value="indie">Indie</option>
+                        <option value="jazz">Jazz</option>
+                        <option value="pop">Pop</option>
+                        <option value="punk">Punk</option>
+                        <option value="reggae">Reggae</option>
+                        <option value="rock">Rock</option>
+                    </select>
+
+
+        <button class="" type="submit" class="btn btn-primary">
+          Guardar
+        </button>
+
+
+                </form>
+
+
+
+    </div>
+</div>
