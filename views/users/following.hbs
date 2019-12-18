@@ -1,0 +1,6 @@
+{{#each this.follows as |follow|}}
+    {{follow.following.profileimg}}
+    {{follow.following.name}}
+    {{follow.following.username}}
+    <a href="/users/{{this.user.id}}">Ver</a>
+{{/each}}

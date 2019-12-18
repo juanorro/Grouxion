@@ -73,8 +73,8 @@ module.exports = [
         id: 'pop',
         name: 'Pop',
         code: '011',
-        image: 'images/boton-off/boton-11.png',
-        hover: 'images/boton-on/boton-on-11.png',
+        image: 'images/boton-off/boton-03.png',
+        hover: 'images/boton-on/boton-on-03.png',
     },
     {
         id: 'punk',

@@ -1,5 +1,6 @@
 const User = require('../models/user.model');
 const mongoose = require('mongoose');
+const Follow = require('../models/follow.model')
 
 
 ////////// USER NEW //////////
@@ -14,8 +15,8 @@ module.exports.new = (_, res) => {
 
 
 module.exports.create = (req, res, next) => {
-  console.log(req.body.files)
-  console.log('file',req.body.file)
+  
+  console.log('file',req.file)
   const user = new User({
     name: req.body.name,
     username: req.body.username,
@@ -51,7 +52,7 @@ module.exports.create = (req, res, next) => {
       res.render('users/new', {
         user: {
           ...user,
-          password: null
+          password: nullp
         },
         genericError: 'User exists'
       })
@@ -176,6 +177,13 @@ module.exports.validate = (req, res, next) => {
   module.exports.profile = (req, res, next) => {
     const id = req.params.id
     User.findById(id)
+      .populate('follows')
+      .populate({
+        path: 'follows',
+        populate: {
+          path: 'following' // Al que yo sigo
+        }
+      })
       .populate('contents')
       .populate({
         path: 'contents',
@@ -234,6 +242,55 @@ module.exports.validate = (req, res, next) => {
       .catch(next)
   
   }
+
+
+  ////////// FOLLOW //////////
+
+  module.exports.showFollow = (req, res, next) => {
+    const id = req.params.id
+
+    User.findById(id)
+    .populate('follows')
+      .populate({
+        path: 'follows',
+        populate: {
+          path: 'following' // Al que yo sigo
+        }
+      })
+      
+    .then(user => {
+      console.log(user)
+      res.render('users/following', user)
+    })
+    .catch(next)
+  }
+
+
+  module.exports.follow = (req, res, next) => {
+    const params = { following: req.currentUser._id, user: req.params.id } 
+
+    Follow.findOne(params)
+        .then(follow => {
+            if(follow) {
+                Follow.findByIdAndRemove(follow._id)
+                .then(() => {
+                  console.log(follow._id, 'borrado')
+                    res.json({ follows: -1 })
+                })
+                .catch(next)
+            } else {
+                
+                const follow = new Follow(params)   
+
+                follow.save()
+                    .then(() => {
+                        res.json({ follows: 1 })
+                    })
+                    .catch(next)
+            }
+        })
+        .catch(next)
+}
 
 
   ////////// USER LOGOUT //////////

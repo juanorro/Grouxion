@@ -9,7 +9,7 @@
       <div class="form-email">
         <label for="email">email</label>
         <input name="email" type="email" class="form-control {{#if error.email }}is-invalid{{/if}}" id="email"
-          placeholder="Enter name" value="{{ user.email }}">
+          placeholder="Enter email" value="{{ user.email }}">
 
         {{#if error.email}}
         <div class="invalid-feedback">
@@ -42,7 +42,7 @@
       <a href="/users/new">Sign up</a>
     </div>
 
-<div class="social-log">
+{{!-- <div class="social-log">
   <div class="google">
     <form action="/google" method="post" class="mb-3">
       <button class="btn-google" type="submit">
@@ -67,7 +67,7 @@
       </button>
     </form>
   </div>
-</div>
+</div> --}}
 
 
   </div>

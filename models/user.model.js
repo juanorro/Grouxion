@@ -95,11 +95,11 @@ userSchema.virtual('likes', {
     justOne: true
 });
 
-userSchema.virtual('follow', {
+userSchema.virtual('follows', {
     ref: 'Follow',
     localField: '_id',
     foreignField: 'user',
-    justOne: true
+    justOne: false
 });
 
 // Hace el hash del password
