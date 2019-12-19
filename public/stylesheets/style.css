@@ -1574,3 +1574,72 @@ ul ul a {
 .logo-footer-container img{
     max-width: 70px;
 }
+
+
+
+
+/*-------------------------- Following ------------------------*/
+
+.wrapper-following{
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 10%;;
+}
+
+.following-container{
+    padding: 5%;
+}
+
+.following-title{
+    font-size: 30px;
+    font-weight: 500;
+    padding-bottom: 2%;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+.following-single{
+    padding: 2%;
+    border-bottom: 1px solid #d8d8d8;
+    display: table;
+    width: 100%;
+}
+
+.following-img{
+    width: 75px;
+    height: 75px;
+    border-radius: 75px;
+    border: 1px solid #000;
+    overflow: hidden;
+    float: left;
+}
+
+.following-img img{
+    width: 75px;
+    height: 75px;
+}
+
+.following-names-container{
+    float: left;
+    padding-left: 5%;
+}
+
+.following-name{
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.following-username{
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 2.5;
+}
+
+.following-ver{
+    float: right;
+    background-color: #00c4ff;
+    padding: 10px 70px;
+    color: #fff;
+    border-radius: 5px;
+    margin-top: 20px;
+}
