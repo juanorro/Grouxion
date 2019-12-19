@@ -176,6 +176,7 @@ module.exports.validate = (req, res, next) => {
 
   module.exports.profile = (req, res, next) => {
     const id = req.params.id
+    const currentUser = req.currentUser
     User.findById(id)
       .populate('follows')
       .populate({
@@ -201,8 +202,7 @@ module.exports.validate = (req, res, next) => {
         }
       }) 
       .then(user => {
-        console.log(user)
-        res.render(`users/profile`, {user})
+        res.render(`users/profile`, { currentUser: currentUser, user: user})
       })
       .catch(err => next(err))
   }

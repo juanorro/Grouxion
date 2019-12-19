@@ -22,3 +22,4 @@ function follow(event) {
         })
         .catch(console.error);
 }
+

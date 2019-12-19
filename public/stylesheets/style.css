@@ -369,7 +369,6 @@ ul {
     padding: 5% 0% 0% 0%;
     text-align: center;
     margin: 0 auto;
-    background-color: #fafafa;
 }
 
 .container-container-quienes{
@@ -425,7 +424,7 @@ ul {
 
 .container-container-categorias{
     width: 80%;
-    padding: 5% 0%;
+    padding: 5% 0% 7.5% 0%;
     text-align: center;
     margin: 0 auto;
 }
@@ -437,7 +436,7 @@ ul {
 }
 
 .categorias-sub{
-    padding: 5%;
+    padding: 5% 5% 2.5% 5%;
     font-size: 1.5em;
     color: #fff;
     line-height: 2;

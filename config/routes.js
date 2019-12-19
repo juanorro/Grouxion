@@ -5,6 +5,7 @@ const userController = require('../controllers/user.controller')
 const authMiddleware = require('../middlewares/auth.middleware')
 const artistController = require('../controllers/artist.controller')
 const contentController = require('../controllers/content.controller')
+const paymentController = require('../controllers/payment.controller')
 const uploadCloud = require('../config/cloudinary.config')
 
 router.get('/', controller.base);
@@ -24,6 +25,7 @@ router.post('/users/:_id', authMiddleware.isAuthenticated, userController.create
 router.get('/users/:id/follow', userController.showFollow)
 router.post('/users/:id/follow', userController.follow)
 
+router.post('/donation/:id', paymentController.donate)
 
 router.get('/users/content/:id', contentController.show)
 router.post('/users/content/:id/comments', contentController.addComment)

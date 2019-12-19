@@ -1,31 +1,36 @@
   <div class="support-container">
-    <div class="support-name">
-      Support {{this.name}}
-    </div>
-    <div class="support-buttons">
-      {{!-- <a href="#"><div class="button1">Support</div></a> --}}
-    
-        <button class="btn-like" id="follow" data-id="{{this.id}}" onclick="follow(event)">
-            {{!-- <span class="button2">Follow</span> --}}
-            Follow
-        </button>
 
+   
+    <div class="support-name">
+    {{#if currentUser}}
+      Support {{user.name}}
+    {{/if}}
+    </div>
+
+    <div class="support-buttons">
+    {{#isSession user currentUser }}
+        <button class="btn-like" id="follow" data-id="{{user.id}}" onclick="follow(event)">
+            Follow        
+        </button>
+        {{else}}
+    {{/isSession}}
+    
 
 
 
     </div>
   <div class="about-container">
     <div class="about-name">
-      About {{this.name}}
+      About {{user.name}}
     </div>
     <div class="">
-      {{this.bio}}
+      {{user.bio}}
     </div>
   </div>
 
   <div class="petition">
     <div class="container-profile-pic"><img src="/images/logo-artcoolt.png" class="w-100 rounded-circle mb-3"/></div>
-    <div class="container-profile-name">{{this.name}}</div>
+    <div class="container-profile-name">{{user.name}}</div>
       <div class="field">
         Welcome to my ArtCoolT Page. If you enjoy my content, please consider supporting what I do. Thank you.
     </div>  
