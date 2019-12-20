@@ -5,7 +5,7 @@ const Comment = require('../models/comment.models')
 const Like =  require('../models/likes.model')
 
 
-module.exports.index = (re, res, next) => {
+module.exports.index = (req, res, next) => {
     const criteria = req.query.search
     ? {
       body: new RegExp(req.query.search, "i")
