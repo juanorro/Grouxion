@@ -2,17 +2,16 @@
 
    
     <div class="support-name">
-    {{#if currentUser}}
+    
       Support {{user.name}}
-    {{/if}}
+    
     </div>
-
+    
     <div class="support-buttons">
     {{#isSession user currentUser }}
         <button class="btn-like" id="follow" data-id="{{../user.id}}" onclick="follow(event)">
             Follow        
         </button>
-        {{else}}
     {{/isSession}}
     
 

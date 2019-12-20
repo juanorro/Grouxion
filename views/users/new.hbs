@@ -1,5 +1,5 @@
 <div class="wrapper-login">
-  <div class="form-container">
+  <div class="form-container-signup">
 
     <div class="title-signin">
       SIGN IN
@@ -9,6 +9,11 @@
     {{#if user}}
     <form action="/users/new" method="POST" enctype="multipart/form-data">
       {{/if}}
+
+
+{{!-- Comienzo de primer bloque --}}
+
+<div class="bloque-signup">
 
       {{#if artist}}
       <form action="/artists" method="POST">
@@ -75,6 +80,11 @@
           {{/if}}
         </div>
 
+</div>
+        {{!-- Fin de 1er Bloque --}}
+
+<div class="bloque-signup">
+
         <div class="form-group">
           <label for="profileimg">Profile Image</label>
           <input name="profileimg" type="file" class="form-control-sign-file {{#if error.profileimg }}is-invalid{{/if}}"
@@ -87,16 +97,14 @@
           {{/if}}
         </div>
 
-        <label for="profileimg">User / Artist</label>
+        <label class="genres" for="profileimg" size="3">User / Artist</label>
         <select name="usertype" multiple>
           <option value="usuario">Usuario</option>
           <option value="artista">Artista</option>
         </select>
 
-
-
-        <label for="profileimg">Genres</label>
-        <select multiple name="categories" >
+        <label class="genres" for="profileimg">Genres</label>
+        <select multiple name="categories" size="3">
           <option value="blues">Blues</option>
           <option value="cumbia">Cumbia</option>
           <option value="electronica">Electrónica</option>
@@ -113,10 +121,12 @@
           <option value="rock">Rock</option>
         </select>   
 
+</div>
 
         <button class="signin-new" type="submit" class="btn btn-primary">
           Sign up
         </button>
+        
       </form>
 
       <div class="logo-signin">

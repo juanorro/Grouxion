@@ -5,29 +5,30 @@
     <div class="quienes-container">
     
 
- 
   
+    <div class="quienes-wrapper">
 
-
-
-
-
-
-
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-    {{#each users}}
-      <div class="swiper-slide">
-        <img src="{{this.profileimg}}" class="d-block w-100" alt="...">
-        {{this.name}}
-        {{this.bio}}
-        <a href="/users/{{this.id}}" >Button</a>
-      </div>
-    {{/each}}
+    {{#each users }}
+    <div class="ficha-artist-container">
+        <div class="folder-back">
+            {{this.coverimg}}
+        </div>
+        <div class="folder-profile">
+            <img src="{{this.profileimg}}" class="d-block w-100" alt="...">
+        </div>
+        <div class="folder-name">
+            {{this.name}}
+        </div>
+        <div class="folder-bio">
+            {{this.bio}}
+        </div>
+        <div class="folder-botton">
+            <a href="/users/{{this.id}}">Ver Perfil</a>
+        </div>
     </div>
-    <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
-  </div>
+{{/each}}
+    </div>
+  
 
 
 
@@ -41,6 +42,3 @@
 
 </div>
 
-    </div>
-    
-  </div>

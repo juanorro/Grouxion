@@ -49,8 +49,8 @@ module.exports = [
         hover: 'images/boton-on/heavy-on.png',
     },
     {
-        id: 'hip-Hop/rap',
-        name: 'Hip Hop',
+        id: 'rap',
+        name: 'Rap',
         code: '008',
         image: 'images/boton-off/rap.png',
         hover: 'images/boton-on/rap-on.png',

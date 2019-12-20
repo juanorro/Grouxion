@@ -6,7 +6,7 @@ const User = require('../models/user.model')
 module.exports.base = (req, res, next) => {
     const users = req.params.id
 
-    User.find().limit(9)
+    User.find().limit(3)
         .then(users => {
             res.render('index', { 
                 title: 'ArtCoolT: the best continuous crowfunding platform to Creators',
