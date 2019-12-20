@@ -8,7 +8,7 @@ function like(event) {
             likesContainer.innerText = Number(likesContainer.innerText) + response.data.likes
         })
         .catch(console.error);
-}
+};
 
 function follow(event) {
     const button = event.target
@@ -21,5 +21,5 @@ function follow(event) {
             // followsContainer.innerText = Number(followsContainer.innerText) + response.data.follows
         })
         .catch(console.error);
-}
+};
 
