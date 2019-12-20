@@ -9,7 +9,7 @@
 
     <div class="support-buttons">
     {{#isSession user currentUser }}
-        <button class="btn-like" id="follow" data-id="{{user.id}}" onclick="follow(event)">
+        <button class="btn-like" id="follow" data-id="{{../user.id}}" onclick="follow(event)">
             Follow        
         </button>
         {{else}}
