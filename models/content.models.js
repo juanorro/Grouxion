@@ -19,10 +19,14 @@ const contentSchema = new mongoose.Schema({
     timestamp: true,
     toObject: {
             virtuals: true
-        }})
+        },
+    toJSON: {
+        virtuals: true
+    }
+})
 
-        contentSchema.pre('save', function (next) {
-            next()
+contentSchema.pre('save', function (next) {
+    next()
 });
 
 contentSchema.virtual('comments', {
