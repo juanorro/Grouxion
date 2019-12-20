@@ -5,12 +5,13 @@ const userController = require('../controllers/user.controller')
 const authMiddleware = require('../middlewares/auth.middleware')
 const artistController = require('../controllers/artist.controller')
 const contentController = require('../controllers/content.controller')
+const paymentController = require('../controllers/payment.controller')
 const uploadCloud = require('../config/cloudinary.config')
 
 router.get('/', controller.base);
 
 router.get('/users/new', userController.new) // Signin para pintar el formulario
-router.post('/users/new', uploadCloud.single('profileimg'),  userController.create) //creación del usuario
+router.post('/users/new', uploadCloud.single('profileimg'), userController.create) //creación del usuario
 
 router.get('/login', userController.login)
 router.post('/login', userController.doLogin)
@@ -21,6 +22,10 @@ router.get('/users/:id/edit', userController.edit)
 router.post('/users/:id', userController.myProfile)
 router.post('/users/:_id', authMiddleware.isAuthenticated, userController.create)
 
+router.get('/users/:id/follow', userController.showFollow)
+router.post('/users/:id/follow', userController.follow)
+
+router.post('/donation/:id', paymentController.donate)
 
 router.get('/users/content/:id', contentController.show)
 router.post('/users/content/:id/comments', contentController.addComment)
@@ -28,6 +33,9 @@ router.post('/users/content/:id', contentController.create)
 
 //likes
 router.post('/users/content/:id/like', contentController.like)
+
+//follows
+
 
 
 // router.get('users/:id/comments', commentsController.create)

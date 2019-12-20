@@ -1,7 +1,9 @@
 
 <div class="image">
     <a href="/artist/{{this.id}}">       
-        <img data-hover="{{this.hover}}" src="{{this.image}}">
+        <img data-hover="{{this.hover}}" src="{{this.image}}" id="myImg" >
+        {{!-- <img onmouseover = "changePic1()"onmouseout= "changePic2()" id="myImg"  data-hover="{{this.hover}}" src="{{this.image}}" id="myImg" > --}}
+
     </a>
 </div>
 
@@ -9,3 +11,12 @@
     {{this.name}} 
 </div>
 
+
+<script>
+function changePic1() {
+document.getElementById("myImg").src = "{{this.image}}";
+   }
+  function changePic22(){
+   document.getElementByID("myImg").src = "{{this.image}}";
+   }
+ </script>

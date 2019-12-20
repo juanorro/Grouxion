@@ -1,0 +1,29 @@
+<div class="wrapper-following">
+    <div class="following-container">
+        <div class="following-title">Following</div>
+
+            {{#each this.follows as |follow|}}
+            <div class="following-single">
+
+                <div class="following-img">
+                    <img src="{{follow.following.profileimg}}" >
+                </div>
+
+                <div class="following-names-container">
+                    <div class="following-name">
+                        {{follow.following.name}}
+                    </div>
+
+                    <div class="following-username">
+                        {{follow.following.username}}
+                    </div>
+                </div>
+
+                <div class="following-ver">
+                    <a href="/users/{{id}}">Ver</a>
+                </div>
+            </div>
+            {{/each}}
+        
+    </div>
+</div>

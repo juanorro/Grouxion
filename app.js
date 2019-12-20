@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const authMiddleware = require('./middlewares/auth.middleware');
 //Handlebars and Mongoose config
 
+require('dotenv').config()
 require('./config/hbs.config');
 require('./config/db.config');
 const session = require('./config/session.config');

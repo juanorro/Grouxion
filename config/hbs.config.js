@@ -4,3 +4,5 @@ const path = require('path');
 
 hbs.registerPartials(path.join(__dirname, '../views/partials'));
 hbs.registerPartials(path.join(__dirname, '../views/home'));
+
+require('../helpers/likes.helpers')(hbs);

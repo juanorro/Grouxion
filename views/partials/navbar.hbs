@@ -83,6 +83,7 @@
 
   
   <!-- Nav -->
+  <div class="nav-container">
   <div class="nav-skin">
     <a href="/">
       <div class="logo"><img src="/images/logo-artcoolt.png"></div>
@@ -93,18 +94,29 @@
         <a class="nav-link active" href="/">Home</a>
       </li>
 
+     {{#unless currentUser}}
       <button type="button" class="btn btn-login">
         <li class="nav-item">
           <a class="nav-link" href="/login">Log In</a>
         </li>
       </button>
+      {{/unless}}
 
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
+
+
+    
+        <a href="/#categorias-aqui" class="btn-profile" >
+          <li class="nav-item">
+            Género
+          </li>
+        </a>
+  
+
+        <a href="/users/{{currentUser._id}}/follow" class="btn-profile" >
+          <li class="nav-item">
+            Following
+          </li>
+        </a>
 
       {{#if currentUser}}
       <!--Si esta en sesion de currentuser, muestra este botón-->
@@ -118,7 +130,7 @@
 
       {{#if currentUser}}
       <!--Si esta en sesion de currentuser, muestra este botón-->
-        <a href="/users/{{currentUser._id}}/edit" class="btn-profile">
+        <a href="/users/{{currentUser._id}}/edit" class="btn-edit">
           <li class="nav-item">
             Edit
           </li>
@@ -143,6 +155,6 @@
 
 
 
-
+</div>
 
 </div> <!-- Fin de Nav -->

@@ -1,6 +1,34 @@
-
 {{!-- {{#if this.artist}} --}}
+
 <div class="dona">
+    <div id="card-element"> {{!-- stripe --}}
+        
+
+    </div>
+    <div class="dona-title">
+        Cómprale una guitarra a {{user.name}}
+    </div>
+
+    <div class="dona-contador">
+        <div class="menos"></div>
+         <input class="cantidad" type="number" id="pago">
+        <div class="mas"></div>
+    </div>
+
+
+    <textarea class="dona-message">
+        {{!-- Your message para {{user.name}} --}}
+    </textarea>
+
+    <div id="card-errors" role="alert"></div> {{!-- stripe --}}
+   <button id="submit" > {{!-- class="dona-boton" stripe --}}
+        Ayuda a {{user.name}}
+    </button>
+</div>
+
+
+
+{{!-- <div class="dona">
     <div class="dona-title">
         Cómprale una guitarra a {{user.name}}
     </div>
@@ -9,19 +37,22 @@
         <div class="menos"></div>
         <div class="cantidad">0</div>
         <div class="mas"></div>
-    </div> 
+    </div>
 
-  
+
     <textarea class="dona-message">
         Your message para {{user.name}}
     </textarea>
-    
 
-   <a href="#" class="dona-boton"> 
-            Ayuda a {{user.name}}
+
+    <a href="#" class="dona-boton">
+        Ayuda a {{user.name}}
     </a>
-</div>
+</div> --}}
+
+
 {{!-- {{/if}} --}}
+
 <div class="post-profile-container">
 
     <div class="contenedor-boton">
@@ -38,63 +69,73 @@
     </div> --}}
 
 
- <form action="/users/content/{{this.id}}" method="POST">
+    <form action="/users/content/{{user.id}}" method="POST">
         <textarea name="body" type="text" class="form-control-sign border c-dark" id="content-body"
             placeholder="Escribe tu comentario" value="" rows="4">
         </textarea>
 
-    <button class="boton-anade" type="submit" class="btn btn-primary">
-        + Añade Algo!
-    </button>
- </form>
+        <button class="boton-anade" type="submit" class="btn btn-primary">
+            + Añade Algo!
+        </button>
+    </form>
 
 
-{{#each this.contents}}
+    {{#each user.contents}}
 
 
-    
-        <h6 class="card-subtitle mb-2 text-muted">
-        </h6>
+
+    <h6 class="card-subtitle mb-2 text-muted">
+    </h6>
 
 
-        <img class="w-100" src="{{this.image}}" />
+    <img class="w-100" src="{{this.image}}" />
 
-      <div class="comments">
+    <div class="comments">
         {{!-- <a class="text-muted d-block text-sm- mb-2" href="tweets/{{this._id}}" > --}}
-            <i class="fa fa-comments"></i>
-            {{this.comments.length}} {{this.body}}
+        <i class="fa fa-comments"></i>
+        {{this.comments.length}} {{this.body}}
         {{!-- </a> --}}
-      </div>
+    </div>
 
-      <div class="comentarios">
-        <a class="text-muted d-block text-sm- mb-2" href="tweets/{{t._id}}" >
+
+    <div class="comments-container">
+    <div class="comentarios">
+        <a class="text-muted d-block text-sm- mb-2" href="tweets/{{t._id}}">
             <i class="fa fa-comments"></i>
             {{t.comments.length}} Comentarios
         </a>
-      </div>
+    </div>
 
-        <div class="likes">
-          <button class="btn btn-sm mb-2 btn-outline-danger" id="likecontent" data-id="{{this.id}}" onclick="like(event)">
+    <div class="likes">
+        <button class="btn-like" id="likecontent" data-id="{{this.id}}" onclick="like(event)">
             <i class="fa fa-heart"></i>
             <span class="likes-count">{{this.likes.length}}</span> likes
-          </button>
-        </div>
+        </button>
+    </div>
 
-        <div class="hashtag">
-            <a href="/users/{{this.user.id}}" class="card-link">@{{this.user.username}}</a> 
-        </div>
-        
-    
+    <div class="hashtag">
+        <a href="/users/{{this.user.id}}" class="card-link">@{{this.user.username}}</a>
+    </div>
+    </div>
 
 
-{{/each}}
+
+
+    {{/each}}
 
 
 
     <div class="signed">
-        Signed in as  
-         <div class="container-profile-pic-signed"><img src="/images/logo-artcoolt.png" class="w-100 rounded-circle mb-3"></div>
+        Signed in as
+        <div class="container-profile-pic-signed"><img src="/images/logo-artcoolt.png"
+                class="w-100 rounded-circle mb-3"></div>
         {{user.name}}
     </div>
 
 </div>
+
+<script>
+    window.currentArtist = "{{user.id}}"
+</script>
+
+<script src="/js/stripe.js"></script>
