@@ -185,11 +185,17 @@ module.exports.validate = (req, res, next) => {
           path: 'following' // Al que yo sigo
         }
       })
-      .populate('contents')
+      // .populate('contents')
       .populate({
         path: 'contents',
         populate: {
           path: 'user'
+        }
+      })
+      .populate({
+        path: 'contents',
+        populate: {
+          path: 'comments'
         }
       })
       .populate({
@@ -202,6 +208,7 @@ module.exports.validate = (req, res, next) => {
         }
       }) 
       .then(user => {
+        console.log(user.contents)
         res.render(`users/profile`, { currentUser: currentUser, user: user})
       })
       .catch(err => next(err))

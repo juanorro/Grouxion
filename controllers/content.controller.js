@@ -22,27 +22,6 @@ module.exports.index = (req, res, next) => {
         .catch(next)
 }
 
-module.exports.addComment = (req, res, next) => { 
-    const contentId = req.params.id
-
-
-    const comment = new Comment({
-        text: req.body.text,
-        user: req.currentUser.id,
-        content: contentId,
-    })
-
-    comment.save()
-        .then(c => {
-            req.session.genericSuccess = "comentario creado"
-            res.redirect(`users/content/${contentId}`)
-        })
-        .catch(() => {
-            req.session.genericError = 'Error creando el comentario'
-            res.redirect(`users/content/${contentId}`)
-        })
-}
-
 module.exports.show = (req, res, next) => {
     Content.findOne({ id: req.params.id })
     .populate('user')
@@ -53,9 +32,6 @@ module.exports.show = (req, res, next) => {
             sort: {
                 createAt: 1
             }
-        },
-        populate: {
-            path: 'user'
         }
     })
     .then(content => {
@@ -63,7 +39,7 @@ module.exports.show = (req, res, next) => {
             console.log(content)
             res.render('content/show', { content, user: content.user })
         } else {
-            req.session.genericError = 'Contenido cno encontrado'
+            req.session.genericError = 'Contenido no encontrado'
             res.redirect(`/users/${user.id}`)
         }
     })

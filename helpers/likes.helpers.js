@@ -17,3 +17,11 @@ module.exports = (hbs) => {
     })
 }
 
+// hbs.registerHelper('isContent', (id, content, options) => {
+//     const contentId = id.id
+//     // const currentId = user._id
+//     const contentrBool = contentId != undefined
+//     return !userBool ? new hbs.SafeString(options.fn(this)) : new hbs.SafeString(options.inverse(this));
+// })
+// }
+
