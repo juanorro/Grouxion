@@ -24,7 +24,7 @@ module.exports.create = (req, res, next) => {
     password: req.body.password,
     social: req.body.social,
     bio: req.body.bio,
-    profileimg: req.file.secure_url,
+    profileimg: req.file && req.file.secure_url,
     // coverimg: req.file.secure_url,
     city: req.body.city,
     zp: req.body.zp,
@@ -208,7 +208,6 @@ module.exports.validate = (req, res, next) => {
         }
       }) 
       .then(user => {
-        console.log(user.contents)
         res.render(`users/profile`, { currentUser: currentUser, user: user})
       })
       .catch(err => next(err))

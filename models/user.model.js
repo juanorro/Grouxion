@@ -36,6 +36,7 @@ const userSchema = new mongoose.Schema ({
 
     profileimg: {
         type: String, 
+        default: 'https://i.blogs.es/59af6d/obama/1366_2000.jpg'
     },
 
     coverimg: {
