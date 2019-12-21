@@ -72,9 +72,6 @@ const userSchema = new mongoose.Schema ({
         timestamps: true,
         toObject: {
             virtuals: true
-        },
-        toJSON: {
-            virtuals: true
         }
 });
 
@@ -102,7 +99,7 @@ userSchema.virtual('likes', {
 userSchema.virtual('follows', {
     ref: 'Follow',
     localField: '_id',
-    foreignField: 'user',
+    foreignField: 'following',
     justOne: false
 });
 

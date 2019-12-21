@@ -256,16 +256,15 @@ module.exports.validate = (req, res, next) => {
     const id = req.params.id
 
     User.findById(id)
-    .populate('follows')
+      .populate('follows')
       .populate({
         path: 'follows',
         populate: {
           path: 'following' // Al que yo sigo
         }
       })
-      
     .then(user => {
-      console.log(user)
+      console.log('USER EN FOLLOWS', user)
       res.render('users/following', user)
     })
     .catch(next)

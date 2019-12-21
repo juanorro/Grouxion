@@ -70,7 +70,7 @@
 
 
     <form action="/users/content/{{user.id}}" method="POST">
-        <textarea name="body" type="text" class="form-control-sign border c-dark" id="content-body"
+        <textarea  name="body" type="text" class="form-control-anade border c-dark" id="content-body"
             placeholder="Escribe tu comentario" value="" rows="4">
         </textarea>
 
@@ -98,12 +98,13 @@
     </div>
 
     <div class="comments-container">
-        <div class="comentarios">
+
+        <div class="comentarios-anadidos">
             <form action="/users/comments/{{this._id}}/{{user.id}}" method="POST">
-                <textarea name="message" type="text" class="form-control-sign border c-dark" id="content-body"
+                <textarea name="message" type="text" class="form-control-anade border c-dark" id="content-body"
                     placeholder="Escribe tu comentario..." value="" rows="4">
                 </textarea>
-                <button class="boton-anade" type="submit" class="btn btn-primary">
+                <button class="boton-publica" type="submit" class="btn btn-primary">
                     Publica
                 </button>
             </form>
