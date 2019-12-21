@@ -6,21 +6,21 @@
             <div class="following-single">
 
                 <div class="following-img">
-                    <img src="{{follow.following.profileimg}}" >
+                    <img src="{{follow.user.profileimg}}" >
                 </div>
 
                 <div class="following-names-container">
                     <div class="following-name">
-                        {{follow.following.name}}
+                        {{follow.user.name}}
                     </div>
 
                     <div class="following-username">
-                        {{follow.following.username}}
+                        {{follow.user.username}}
                     </div>
                 </div>
 
                 <div class="following-ver">
-                    <a href="/users/{{follow.following.id}}">Ver</a>
+                    <a href="/users/{{follow.user.id}}">Ver</a>
                 </div>
             </div>
             {{/each}}

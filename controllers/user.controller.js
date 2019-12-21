@@ -260,7 +260,7 @@ module.exports.validate = (req, res, next) => {
       .populate({
         path: 'follows',
         populate: {
-          path: 'following' // Al que yo sigo
+          path: 'user' // Al que yo sigo
         }
       })
     .then(user => {
