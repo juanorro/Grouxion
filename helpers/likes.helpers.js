@@ -10,6 +10,7 @@ module.exports = (hbs) => {
     })
 
     hbs.registerHelper('isSession', (id, user, options) => {
+        console.log({id})
         const userId = id._id
         const currentId = user._id
         const userBool = userId == currentId 
